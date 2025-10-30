@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Chatty Backend - Platform-Ready Chat API
 
 A production-ready chat application backend built with FastAPI, Socket.IO, and SQLite. This project demonstrates how to evolve a working API into a platform-ready service with proper DevOps, infrastructure, and SDLC best practices.
@@ -385,3 +386,7 @@ The GitHub Actions workflow includes:
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+=======
+# chatty-main
+Chat service for members
+>>>>>>> 6d16dc0200723f11d1cd4992f7d89e7a608c46cd
