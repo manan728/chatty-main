@@ -251,7 +251,7 @@ pytest -v
 
 ### Code Coverage
 
-**Coverage Requirement:** 70% minimum (enforced in CI/CD pipeline)
+**Coverage Requirement:** 60% minimum (current CI gate)
 
 **Run tests with coverage:**
 ```bash
@@ -275,9 +275,8 @@ open htmlcov/index.html  # macOS
 - XML report (for CI/CD integration)
 
 **CI/CD Pipeline:**
-- Coverage is automatically calculated on every push/PR
-- Pipeline **fails** if coverage drops below 70%
-- Coverage HTML report is uploaded as an artifact
+- Coverage is calculated on every push/PR
+- Pipeline fails if coverage drops below 60%
 
 ### Integration Tests
 
@@ -358,12 +357,12 @@ The application includes Socket.IO for real-time message updates!
 
 The GitHub Actions workflow includes:
 
-1. **Testing**: Unit tests, integration tests, smoke tests
-   - Code coverage requirement: **70% minimum** (pipeline fails if below threshold)
-   - Coverage reports generated in multiple formats (terminal, HTML, XML)
-2. **Code Quality**: Linting, type checking, security scanning
-3. **Building**: Docker image creation and ECR push (only if tests pass)
-4. **Deployment**: ECS service update (only if build succeeds)
+1. **Testing**: Unit tests, integration tests
+   - Code coverage requirement: **60% minimum** (pipeline fails if below threshold)
+   - Coverage reported in terminal and XML (no external uploads)
+2. **Code Quality**: Linting (ruff) with auto-format
+3. **Cloud Build/Deploy**: Disabled for now (no AWS build/push/deploy in CI)
+   - Re-enable by removing the `if: false` guards on the `build` and `deploy` jobs and adding required AWS secrets
 
 ## 📋 TODO / Future Enhancements
 
@@ -373,6 +372,8 @@ The GitHub Actions workflow includes:
 - [ ] Advanced monitoring dashboards
 - [ ] Performance optimization
 - [ ] API versioning strategy
+- [ ] Implement Terraform IaC (VPC, ALB, ECS; optional RDS/ElastiCache; S3+DynamoDB state backend)
+- [ ] Re-enable CI cloud build (ECR) and deploy (ECS) once AWS creds/secrets are configured
 
 ## 🤝 Contributing
 
