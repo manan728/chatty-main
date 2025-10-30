@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Chatty Backend - Platform-Ready Chat API
 
 A production-ready chat application backend built with FastAPI, Socket.IO, and SQLite. This project demonstrates how to evolve a working API into a platform-ready service with proper DevOps, infrastructure, and SDLC best practices.
