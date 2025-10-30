@@ -5,11 +5,9 @@ import uuid
 from datetime import datetime
 from typing import Generator
 
-from sqlalchemy import create_engine, Column, String, DateTime, func
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy import create_engine, Column, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
-from sqlalchemy.types import TypeDecorator, CHAR
 
 from chatty.core.config import settings
 

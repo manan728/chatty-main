@@ -3,7 +3,6 @@ ChatroomParticipant database model.
 """
 from sqlalchemy import Column, String, ForeignKey, UniqueConstraint
 from sqlalchemy.orm import relationship
-from sqlalchemy.exc import IntegrityError
 
 from chatty.core.database import BaseModel
 

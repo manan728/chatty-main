@@ -2,7 +2,7 @@
 Prometheus metrics integration for monitoring.
 """
 from prometheus_client import Counter, Histogram, Gauge, generate_latest, CONTENT_TYPE_LATEST
-from fastapi import Request, Response
+from fastapi import Request
 from fastapi.responses import PlainTextResponse
 import time
 

@@ -1,11 +1,9 @@
 """
 Message management endpoints.
 """
-from typing import List
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from sqlalchemy.exc import IntegrityError
 
 from chatty.core.database import get_db
 from chatty.core.logging import get_logger

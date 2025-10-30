@@ -60,7 +60,7 @@ def explore_database():
             if count > 0:
                 cursor.execute(f"SELECT * FROM {table_name} LIMIT 3;")
                 sample_data = cursor.fetchall()
-                print(f"  📝 Sample data:")
+                print("  📝 Sample data:")
                 for row in sample_data:
                     print(f"    {row}")
         
@@ -74,7 +74,7 @@ def explore_database():
             print(f"  - {index_name}: {index_sql}")
         
         conn.close()
-        print(f"\n✅ Database exploration complete!")
+        print("\n✅ Database exploration complete!")
         
     except sqlite3.Error as e:
         print(f"❌ Database error: {e}")

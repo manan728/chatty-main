@@ -1,7 +1,6 @@
 """
 Tests for user management endpoints.
 """
-import pytest
 from chatty.models.user import User
 
 

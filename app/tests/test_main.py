@@ -1,7 +1,6 @@
 """
 Tests for the main FastAPI application.
 """
-import pytest
 
 
 def test_root_endpoint(client) -> None:

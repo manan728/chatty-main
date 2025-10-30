@@ -2,9 +2,8 @@
 User database model.
 """
 import re
-from sqlalchemy import Column, String, Index
+from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
-from sqlalchemy.exc import IntegrityError
 
 from chatty.core.database import BaseModel
 

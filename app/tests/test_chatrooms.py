@@ -1,8 +1,6 @@
 """
 Tests for chatroom management endpoints.
 """
-import pytest
-import uuid
 from chatty.models.chatroom import Chatroom
 
 

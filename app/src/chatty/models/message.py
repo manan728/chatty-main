@@ -2,7 +2,6 @@
 Message database model.
 """
 from sqlalchemy import Column, String, Boolean, ForeignKey, Index
-from sqlalchemy.orm import relationship
 
 from chatty.core.database import BaseModel
 

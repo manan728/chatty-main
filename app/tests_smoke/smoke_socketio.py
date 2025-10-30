@@ -8,7 +8,6 @@ import asyncio
 import uuid
 import requests
 from typing import Dict, Any
-from requests.exceptions import RequestException
 
 NEEDED_SLEEP = 0.5
 

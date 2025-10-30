@@ -2,7 +2,6 @@
 Smoke test for Chatty API using pytest.
 """
 
-import json
 import time
 from typing import Dict, Any, Optional
 import pytest
@@ -63,7 +62,7 @@ class ChattyAPIClient:
                 return response.json()
             return {}
             
-        except RequestException as e:
+        except RequestException:
             # Let pytest handle the error reporting
             raise
     

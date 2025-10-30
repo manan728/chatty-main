@@ -1,7 +1,6 @@
 """
 Environment configuration management with validation.
 """
-import os
 from typing import List, Optional
 from pydantic_settings import BaseSettings
 from pydantic import validator, Field
