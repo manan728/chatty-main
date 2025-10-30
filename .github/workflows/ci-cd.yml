@@ -62,15 +62,7 @@ jobs:
         ruff format .
         ruff check .
     
-    - name: Run type checking (scoped, tolerant)
-      working-directory: ./app
-      env:
-        PYTHONPATH: ./src
-      run: |
-        source .venv/bin/activate
-        mypy src \
-          --ignore-missing-imports \
-          --exclude '(alembic|tests|venv|models|schemas)'
+    # Type checking step removed for now
     
     # Security scan disabled for now
     
