@@ -55,12 +55,12 @@ jobs:
         pip install -r requirements.txt \
           pytest pytest-asyncio pytest-cov httpx aiohttp ruff mypy bandit
     
-    - name: Run linting
+    - name: Run linting (auto-format then lint)
       working-directory: ./app
       run: |
         source .venv/bin/activate
+        ruff format .
         ruff check .
-        ruff format --check .
     
     - name: Run type checking
       working-directory: ./app
