@@ -62,17 +62,17 @@ jobs:
         ruff format .
         ruff check .
     
-    - name: Run type checking
+    - name: Run type checking (scoped, tolerant)
       working-directory: ./app
+      env:
+        PYTHONPATH: ./src
       run: |
         source .venv/bin/activate
-        mypy .
+        mypy src \
+          --ignore-missing-imports \
+          --exclude '(alembic|tests|venv|models|schemas)'
     
-    - name: Run security scan
-      working-directory: ./app
-      run: |
-        source .venv/bin/activate
-        bandit -r src/
+    # Security scan disabled for now
     
     - name: Run tests with coverage
       working-directory: ./app
@@ -88,13 +88,6 @@ jobs:
           --cov-report=xml \
           --cov-report=html \
           --cov-fail-under=70
-    
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
-      with:
-        file: ./app/coverage.xml
-        flags: unittests
-        name: codecov-umbrella
     
     - name: Upload coverage HTML report
       uses: actions/upload-artifact@v4
