@@ -86,52 +86,18 @@ jobs:
       run: |
         grep -A5 "TOTAL" coverage.xml || true
 
-  build:
-    needs: test
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
-    
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v2
-    
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v5
-      with:
-        context: .
-        file: ./Dockerfile
-        push: true
-        tags: |
-          ${{ steps.login-ecr.outputs.registry }}/chatty:${{ github.sha }}
-          ${{ steps.login-ecr.outputs.registry }}/chatty:latest
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
+build:
+  # Disabled for local-only pipeline; re-enable when AWS build is needed
+  if: false
+  needs: test
+  runs-on: ubuntu-latest
+  steps:
+  - run: echo "Build stage disabled in this repository snapshot."
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-west-2
-    
-    - name: Deploy to ECS
-      run: |
-        # Update ECS service with new image
-        aws ecs update-service \
-          --cluster chatty-cluster \
-          --service chatty-service \
-          --force-new-deployment
+deploy:
+  # Disabled for local-only pipeline; re-enable when AWS deploy is needed
+  if: false
+  needs: build
+  runs-on: ubuntu-latest
+  steps:
+  - run: echo "Deploy stage disabled in this repository snapshot."
